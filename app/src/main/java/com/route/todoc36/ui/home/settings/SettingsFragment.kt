@@ -18,4 +18,7 @@ class SettingsFragment :Fragment() {
         fragmentSettingsBinding = FragmentSettingsBinding.inflate(layoutInflater,container,false);
         return fragmentSettingsBinding.root;
     }
+    companion object{
+        val TAG = "Settings-Fragment"
+    }
 }

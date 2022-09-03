@@ -19,7 +19,7 @@ interface TaskDao {
     fun selectAllTasks():List<Task>
 
     @Query("select * from Task where date = :dateParam")
-    fun selectTasksByDate(dateParam:Int):List<Task>
+    fun selectTasksByDate(dateParam:Long):List<Task>
 
     @Query("select * from Task where id = :id")
     fun getTaskById(id:Int):Task

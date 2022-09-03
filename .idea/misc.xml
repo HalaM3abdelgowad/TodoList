@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/drawable/vertical_line.xml" value="0.2552083333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.125" />
         <entry key="app/src/main/res/layout/content_home.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_add_task.xml" value="0.45" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.1921875" />
         <entry key="app/src/main/res/layout/fragment_tasks_list.xml" value="0.1921875" />
         <entry key="app/src/main/res/layout/item_task.xml" value="0.375" />

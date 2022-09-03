@@ -1,5 +1,6 @@
 package com.route.todoc36.ui.home.list
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,12 +10,13 @@ import androidx.fragment.app.Fragment
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener
+import com.route.todoc36.base.BaseFragment
 import com.route.todoc36.database.MyDataBase
 import com.route.todoc36.database.Task
 import com.route.todoc36.databinding.FragmentTasksListBinding
 import java.util.*
 
-class ListTasksFragment :Fragment() {
+class ListTasksFragment :BaseFragment() {
     lateinit var viewBinding: FragmentTasksListBinding
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,7 +37,6 @@ class ListTasksFragment :Fragment() {
         adapter.onDeleteClickListener = object :TasksListAdapter.OnItemClickListener{
             override fun onItemClick(pos: Int, item: Task) {
                 deleteTask(item)
-                reloadTasks()
             }
         }
         viewBinding.recyclerView.adapter = adapter
@@ -66,9 +67,23 @@ class ListTasksFragment :Fragment() {
         adapter.reloadTasks(tasksList)
     }
     fun deleteTask(task:Task){
-        MyDataBase.getInstance(requireContext())
-            .getTasksDao()
-            .deleteTask(task)
+
+        showMessage("Are you sure you want to delete this task ?",
+            posActionTitle = "yes",
+            posAction = { dialogInterface, i ->
+                dialogInterface?.dismiss()
+                MyDataBase.getInstance(requireContext())
+                    .getTasksDao()
+                    .deleteTask(task)
+                reloadTasks() },
+            negActionTitle = "cancel",
+            negAction = DialogInterface.OnClickListener { dialogInterface, i ->
+                dialogInterface?.dismiss()
+            }
+        )
+
+
+
     }
     companion object{
         val TAG = "Tasks-Fragment"

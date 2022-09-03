@@ -13,12 +13,13 @@ import android.view.ViewGroup
 import android.widget.DatePicker
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.route.todoc36.R
+import com.route.todoc36.base.BaseBottomSheet
 import com.route.todoc36.database.MyDataBase
 import com.route.todoc36.database.Task
 import com.route.todoc36.databinding.FragmentAddTaskBinding
 import java.util.*
 
-class AddTaskBottomSheet :BottomSheetDialogFragment() {
+class AddTaskBottomSheet :BaseBottomSheet() {
 
     lateinit var viewBinding:FragmentAddTaskBinding
     override fun onCreateView(
@@ -82,38 +83,6 @@ class AddTaskBottomSheet :BottomSheetDialogFragment() {
                 dismiss()
                 taskAddedLister?.onTaskAdded()
             },cancelable = false);
-    }
-    var progressDialog:ProgressDialog? =null;
-    fun showLoadingDialog(){
-       progressDialog = ProgressDialog(requireContext());
-       progressDialog?.setMessage("Loading...")
-       progressDialog?.show()
-    }
-    fun hideLoading(){
-        progressDialog?.dismiss();
-    }
-    var alertDialog :AlertDialog? =null
-    fun showMessage(message:String,
-                    posActionTitle:String?=null,
-                    posAction:DialogInterface.OnClickListener?=null,
-                    negActionTitle:String?=null,
-                    negAction:DialogInterface.OnClickListener?=null,
-                    cancelable:Boolean = true){
-
-        val messageDialogBuilder = AlertDialog.Builder(requireContext())
-        messageDialogBuilder.setMessage(message)
-
-        if(posActionTitle!=null){
-            messageDialogBuilder.setPositiveButton(posActionTitle,
-            posAction?: DialogInterface.OnClickListener { dialog, p1 -> dialog?.dismiss() })
-        }
-        if(negActionTitle!=null){
-           messageDialogBuilder.setNegativeButton(negActionTitle,
-           negAction?: DialogInterface.OnClickListener { dialog, p1 -> dialog?.dismiss() })
-        }
-        messageDialogBuilder.setCancelable(cancelable)
-
-        alertDialog = messageDialogBuilder.show()
     }
     fun isValidForm():Boolean{
         var isValid = true;

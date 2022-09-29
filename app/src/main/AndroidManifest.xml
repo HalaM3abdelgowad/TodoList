@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TodoC36">
         <activity
+            android:name=".ui.home.update.UpdateTodoActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.home.MainActivity"
             android:exported="true">
             <intent-filter>

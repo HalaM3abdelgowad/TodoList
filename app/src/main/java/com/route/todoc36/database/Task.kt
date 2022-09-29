@@ -3,6 +3,7 @@ package com.route.todoc36.database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 import java.util.*
 
 
@@ -18,5 +19,5 @@ data class Task (
         @ColumnInfo
         var date:Long?=null,
         @ColumnInfo
-        var isDone:Boolean?=null
-        )
+        var isDone:Boolean?=false
+        ) :Serializable

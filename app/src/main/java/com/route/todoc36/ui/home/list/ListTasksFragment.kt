@@ -1,6 +1,7 @@
 package com.route.todoc36.ui.home.list
 
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import com.route.todoc36.base.BaseFragment
 import com.route.todoc36.database.MyDataBase
 import com.route.todoc36.database.Task
 import com.route.todoc36.databinding.FragmentTasksListBinding
+import com.route.todoc36.ui.home.update.UpdateTodoActivity
 import java.util.*
 
 class ListTasksFragment :BaseFragment() {
@@ -39,6 +41,19 @@ class ListTasksFragment :BaseFragment() {
                 deleteTask(item)
             }
         }
+
+        /// for make edit action
+        adapter.onItemClickedToBeUpdated=object :OnItemClickedToBeUpdated{
+            override fun onClickToBeUpdated(task: Task) {
+                showMessage("What you want to do","update",
+                    DialogInterface.OnClickListener { dialogInterface, i -> updateTodo(task) }
+                ,"makeDone",DialogInterface.OnClickListener { dialogInterface, i -> makeTodoDone(task) })
+
+
+            }
+
+        }
+
         viewBinding.recyclerView.adapter = adapter
         viewBinding.calendarView.setOnDateChangedListener { widget, selectedDate, selected ->
             // when user clicks on date
@@ -49,6 +64,27 @@ class ListTasksFragment :BaseFragment() {
         }
         viewBinding.calendarView.setDateSelected(CalendarDay.today(),true)
     }
+
+    private fun updateTodo(task: Task) {
+
+        val intent :Intent=Intent(requireContext(),UpdateTodoActivity::class.java)
+        intent.putExtra("todo",task)
+        startActivity(intent)
+    }
+
+    private fun makeTodoDone(task: Task) {
+
+        task.isDone=true
+        MyDataBase.getInstance(requireContext()).getTasksDao().updateTask(task)
+        refreshRecyclerItems()
+
+    }
+
+    private fun refreshRecyclerItems() {
+        adapter.reloadTasks(MyDataBase.getInstance(requireContext()).getTasksDao().selectAllTasks())
+        adapter.notifyDataSetChanged()
+    }
+
     val currentDate = Calendar.getInstance();
     init {
         currentDate.set(Calendar.HOUR,0)

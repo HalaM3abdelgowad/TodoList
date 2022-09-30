@@ -42,7 +42,7 @@
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Update Task"
+                android:text="@string/update_task"
                 android:textSize="24sp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +58,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Title"
+                    android:hint="@string/title"
                     android:background="@android:color/transparent"
                     />
             </com.google.android.material.textfield.TextInputLayout>
@@ -72,7 +72,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Description"
+                    android:hint="@string/description"
                     android:lines="5"
                     android:gravity="start"
                     android:background="@android:color/transparent"
@@ -90,7 +90,7 @@
                     android:id="@+id/date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="date"
+                    android:hint="@string/date"
                     android:padding="12dp"
                     android:background="@android:color/transparent"
                     android:gravity="start"
@@ -105,7 +105,7 @@
                 android:backgroundTint="@color/primaryColor"
                 android:paddingVertical="12dp"
                 android:layout_margin="18dp"
-                android:text="Update"
+                android:text="@string/update"
                 android:textAllCaps="false"
                 android:textStyle="bold"
                 android:textSize="21sp"

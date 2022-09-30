@@ -10,6 +10,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.route.todoc36.LanguagesSettingsHelper
 import com.route.todoc36.R
 import com.route.todoc36.databinding.FragmentSettingsBinding
 import com.route.todoc36.databinding.FragmentTasksListBinding
@@ -45,8 +46,9 @@ class SettingsFragment :Fragment() {
             AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>,
                                         view: View, position: Int, id: Long) {
+
                 if(languages[position].equals("Arabic")) {
-                 //   LanguagesSettingsHelper.putData("ar",requireContext())
+                  LanguagesSettingsHelper.putData("ar",requireContext())
                 //    Log.e("setting" , "arabic selected")
                     LocaleHelper.setLocale(requireContext(), "ar")
                     Toast.makeText(requireContext(), "Arabic", Toast.LENGTH_LONG).show()
@@ -54,7 +56,7 @@ class SettingsFragment :Fragment() {
                     val intent: Intent = Intent(requireContext(), MainActivity::class.java)
                     startActivity(intent)
                 }else{
-                   // LanguagesSettingsHelper.putData("en",requireContext())
+                   LanguagesSettingsHelper.putData("en",requireContext())
                    // Log.e("setting" , "english selected")
 
 /*

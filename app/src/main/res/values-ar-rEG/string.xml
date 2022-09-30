@@ -1,10 +1,17 @@
 <resources>
     <string name="app_name">TodoApp</string>
-    <string name="please_enter_title">برجاء ادخال العنوان</string>
+    <string name="please_enter_title">   برجاء ادخال العنوان</string>
     <string name="please_enter_desc">برجاء ادخال المحتوى</string>
     <string name="please_select_date">برجاء اختيار التاريخ</string>
-    <string name="add_task">ااضافه عمل</string>
-    <string name="languages">اللغات</string>
+    <string name="add_task">ااضافه مهام</string>
+    <string name="languagesTxt">اللغات</string>
+    <string name="update_task">تعديل المهام</string>
+    <string name="title">العنوان</string>
+    <string name="description">المحتوى</string>
+    <string name="date">التاريخ</string>
+    <string name="update">تعديل</string>
+    <string name="add">اضافة</string>
+
     <string-array name="Languages">
         <item>اللغة العربية</item>
         <item>اللغة الانجليزية</item>

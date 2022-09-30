@@ -20,7 +20,7 @@ class UpdateTodoActivity : AppCompatActivity() {
 
         activityUpdateTodoBinding=ActivityUpdateTodoBinding.inflate(layoutInflater)
 
-        setContentView(R.layout.activity_update_todo)
+        setContentView(activityUpdateTodoBinding.root)
         //recive intent
         task= (intent.getSerializableExtra("todo") as? Task)!!
        // Log.e(task.title,"my tiltle of task")

@@ -30,7 +30,7 @@ class TasksListAdapter (var items:List<Task>):RecyclerView.Adapter<TasksListAdap
         if (items[position].isDone==true){
             holder.viewBinding.title.setTextColor(Color.GREEN)
             holder.viewBinding.verticalLine.setBackgroundColor(Color.GREEN)
-            //  holder.viewBinding.markDone.setImageResource(R.drawable.ic_done)
+            holder.viewBinding.markDone.setBackgroundResource(R.drawable.makedone)
 
         }
 

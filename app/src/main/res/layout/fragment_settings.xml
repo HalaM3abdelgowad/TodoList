@@ -10,7 +10,7 @@
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     android:layout_margin="20dp"
-    android:text="@string/languages"
+    android:text="@string/languagesTxt"
     android:textStyle="bold"
     android:textSize="30sp"
     />

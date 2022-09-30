@@ -4,7 +4,13 @@
     <string name="please_enter_desc">please enter description</string>
     <string name="please_select_date">please select date</string>
     <string name="add_task">Add Task</string>
-    <string name="languages">Languages</string>
+    <string name="languagesTxt">Languages</string>
+    <string name="update_task">Update Task</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="date">date</string>
+    <string name="update">Update</string>
+    <string name="add">Add</string>
     <string-array name="Languages">
         <item>English</item>
         <item>Arabic</item>
